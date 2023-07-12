@@ -14,16 +14,13 @@ def answer_sheet_sum(sheet_id:str, answer_sheet = "0000010001"):
     #result = df['Answer'][0]
     #result = list(find_all(answer_sheet , '1'))
     
-    answers = []
-    i = 0
-    for digit in answer_sheet:
-        print (digit)
-        if (digit == "0") or (digit ==0):
-            answers.append(df['Answer'][i])
-        i+=1
-        
-    result = answers
+    answer = []
+    for index, digit in enumerate(answer_sheet):
+        if int(digit) == 0:
+            answer.append([index, df['Answer'][index],df['Image'][index]])
+
+    df_a = pd.DataFrame(answer, columns = (['No','Answer','Image']))
     
-    jsonStr = json.dumps(answers)
+    #jsonStr = json.dumps(answers)
     #result = jsonStr
-    return result
+    #return result
