@@ -18,7 +18,7 @@ def answer_sheet_sum(sheet_id:str, answer_sheet = "0000010001"):
     i = 0
     for digit in answer_sheet:
         print (digit)
-        if (digit == "1") or (digit ==1):
+        if (digit == "0") or (digit ==0):
             answers.append(df['Answer'][i])
         i+=1
         
