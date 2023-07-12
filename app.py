@@ -8,7 +8,10 @@ def create_flex(df):
   input_ans = df['No']
   answer = df['Answer']
   image = df['Image']
-  flex = {"type": "carousel","contents":[]}
+  flex = {"type": "flex",
+          "altText": "This is a buttons template",
+          "contents": {"type": "carousel","contents":[]}
+          }
   for q_num in range(len(input_ans)):
       bubble_temp = """{
             "type": "bubble",
@@ -49,7 +52,7 @@ def create_flex(df):
             }
           }"""%(image[q_num],input_ans[q_num],answer[q_num])
       bubble_temp = json.loads(bubble_temp)
-      flex['contents'].append(bubble_temp)
+      flex['contents']['contents'].append(bubble_temp)
   return flex
 
 def line_response(flex):
